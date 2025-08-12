@@ -253,6 +253,77 @@
   <p>LinkedIn: <a href="https://www.linkedin.com/in/mitalejandroflores">https://www.linkedin.com/in/mitalejandroflores</a></p>
 </section>
 
+<section>
+  <h3>Professional Recommendations</h3>
+  <div class="carousel">
+    <div class="slides">
+      <img src="img/recommendation1.jpg" alt="Recommendation 1">
+      <img src="img/recommendation2.jpg" alt="Recommendation 2">
+      <img src="img/recommendation3.jpg" alt="Recommendation 3">
+      <img src="img/recommendation4.jpg" alt="Recommendation 3">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<style>
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(33, 44, 103, 0.15);
+}
+.carousel .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+  width: 100%;
+  flex-shrink: 0;
+}
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(26, 35, 126, 0.6);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.carousel button:hover {
+  background-color: rgba(26, 35, 126, 0.9);
+}
+.carousel .prev {
+  left: 10px;
+}
+.carousel .next {
+  right: 10px;
+}
+</style>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelector(".carousel .slides");
+const totalSlides = document.querySelectorAll(".carousel img").length;
+
+document.querySelector(".next").addEventListener("click", () => {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+</script>
+
+
 <footer>
   &copy; 2025 Alejandro Flores  
 </footer>
