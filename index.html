@@ -324,6 +324,53 @@ document.querySelector(".prev").addEventListener("click", () => {
 </script>
 
 
+
+<section>
+  <h3>Contact me</h3>
+  <form action="https://formspree.io/f/xqaljdqv" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="name">Company:</label><br>
+    <input type="text" id="company" name="company" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="_replyto" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+}
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+button {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #3949ab;
+}
+</style>
+
+
 <footer>
   &copy; 2025 Alejandro Flores  
 </footer>
