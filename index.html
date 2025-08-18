@@ -199,6 +199,24 @@
       height: 200px;
     }
   }
+  
+/* Ajustes de flechas en móvil */
+@media (max-width: 768px) {
+  .carousel button {
+    font-size: 18px;     /* más pequeñas */
+    padding: 6px;
+    top: auto;           /* las bajamos */
+    bottom: 10px;
+    transform: none;     /* quitamos el centrado */
+  }
+  .carousel .prev {
+    left: 20px;
+  }
+  .carousel .next {
+    right: 20px;
+  }
+}
+
 </style>
 </head>
 <body>
