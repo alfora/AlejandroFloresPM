@@ -200,21 +200,36 @@
     }
   }
   
-/* Ajustes de flechas en móvil */
+/* --- FIX Carrusel en pantallas pequeñas --- */
 @media (max-width: 768px) {
-  .carousel button {
-    font-size: 18px;     /* más pequeñas */
-    padding: 6px;
-    top: auto;           /* las bajamos */
-    bottom: 10px;
-    transform: none;     /* quitamos el centrado */
+  /* Ajustamos imágenes del carrusel */
+  .carousel img {
+    width: 100%;
+    height: auto;       /* que se ajuste sin deformar */
+    max-height: 220px;  /* límite para que no sean demasiado altas */
+    object-fit: contain;
+    border-radius: 8px;
   }
+
+  /* Flechas de navegación más pequeñas y abajo */
+  .carousel button {
+    font-size: 16px;
+    padding: 8px;
+    bottom: 5px;       /* pegadas abajo */
+    top: auto;         /* eliminamos centrado */
+    transform: none;   /* quitamos el translateY */
+    background: rgba(0,0,0,0.6); /* mejor contraste */
+  }
+
   .carousel .prev {
     left: 20px;
   }
   .carousel .next {
     right: 20px;
   }
+}
+
+  
 }
 
 </style>
