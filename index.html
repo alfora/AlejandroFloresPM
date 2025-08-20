@@ -26,20 +26,42 @@
     color: #2c3e50;
     background: #f0f4f8;
   }
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 2.8em;
-    color: #1a237e;
-  }
-  header h2 {
-    margin-top: 5px;
-    font-weight: normal;
-    color: #3949ab;
-  }
+header {
+  background: url('img/pexels-tara-winstead-8386440.jpg') center/cover no-repeat;
+  height: 60vh; /* menos alto, más panorámico */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin: 0;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+header .overlay {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  color: #fff;
+}
+
+header h2 {
+  margin-top: 10px;
+  font-weight: normal;
+  color: #fff;
+}
   section {
     background: white;
     padding: 25px 30px;
@@ -229,114 +251,245 @@
   }
 }
 
+#experience {
+  width: 90%;
+  margin: auto;
+  padding: 50px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+#experience h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 90%;
+  border-left: 4px solid #3498db;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item.right {
+  left: 50%;
+  transform: translateX(50px);
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #3498db;
+  border-radius: 50%;
+  top: 20px;
+  left: -12px;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: #f0f0f0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #222;
+}
+
+.timeline-content h4 {
+  margin: 5px 0;
+  color: #555;
+}
+
+.timeline-content ul {
+  margin: 10px 0 0 20px;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .timeline-item.left { transform: translateX(-50px); }
+  .timeline-item.right { transform: translateX(50px); }
+}
+
+
+/* Animación al hacer scroll */
+@media (min-width: 768px) {
+  .timeline-item.left { transform: translateX(-50px); }
+  .timeline-item.right { transform: translateX(50px); }
+}
+
   
 }
 
 </style>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RKDNJZDZ5M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RKDNJZDZ5M');
+</script>
+
+
 <body>
 <header>
-  <h1>Alejandro Flores</h1>
-  <h2>Agile and Technical Project Manager</h2>
+  <div class="overlay">
+    <h1>Alejandro Flores</h1>
+    <h2>Agile and Technical Project Manager</h2>
+  </div>
 </header>
 
-<section id="experience">
-  <h2>Professional Experience</h2>
 
-  <article>
+<section id="professional-summary">
+  <h2>Professional Summary</h2>
+  <p>
+    Results-driven Project Manager with a strong track record of delivering Healthcare complex programs and projects on time, within scope, and within budget. Skilled at identifying and mitigating technical and operational risks, managing critical third-party deliverables, and maintaining strong stakeholder engagement. Adept at conducting business reviews, aligning cross-functional teams, and advocating appropriate technologies to drive customer success and project excellence.
+  </p>
+</section>
+
+<section id="core-competencies">
+  <h2>Core Competencies</h2>
+  <ul>
+    <li>IT Project Management (Agile/Scrum/Waterfall)</li>
+    <li>Agile Coaching in Low-Complexity Environments</li>
+    <li>Meeting Facilitation for Planning & Problem Solving</li>
+    <li>Team Self-Organization & Flow Optimization</li>
+    <li>Backlog Management & Value Delivery</li>
+    <li>Identification & Escalation of Impediments</li>
+    <li>Continuous Improvement Using Metrics</li>
+    <li>Transparency & Communication Enhancement</li>
+    <li>Dependency Management & Visualization</li>
+    <li>Risk & Change Management</li>
+    <li>Compliance with Data Privacy & Security Policies</li>
+    <li>Tools: Jira, Confluence, Azure DevOps, Power BI, Tableau, Smartsheet</li>
+  </ul>
+</section>
+
+<<section id="experience">
+  <h2>Professional Experience</h2>
+  <div class="timeline">
+
+ <!-- Hexaware Technologies -->
+<div class="timeline-item left">
+  <div class="timeline-content">
     <h3>Hexaware Technologies (Direct Contract) <span>(Sep 2018 – Jul 2025)</span></h3>
 
-    <div class="role">
-      <h4>Primerica – Financial Services | Project Manager <span>(Jul 2023 – Jul 2025)</span></h4>
-      <ul>
-        <li>Directed end-to-end delivery of multiple initiatives for Web & Mobile platforms, ensuring alignment with business goals, schedules, budgets, and compliance standards.</li>
-        <li>Led Agile transformation across 4 cross-functional teams, increasing delivery velocity by 25% while maintaining quality and regulatory adherence.</li>
-        <li>Defined and institutionalized project governance and Agile standards across the organization to improve execution consistency.</li>
-        <li>Designed and implemented automated KPI dashboards (eazyBI & Jira) to provide executives with real-time delivery performance and risk insights.</li>
-        <li>Managed interdependencies between initiatives, optimizing resource allocation and mitigating schedule risks.</li>
-        <li>Fostered a high-performance culture by promoting team ownership while maintaining strong oversight on deliverables and timelines.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Ernst & Young – Consulting | Project Manager <span>(Jul 2022 – Jul 2023)</span></h4>
-      <ul>
-        <li>Managed a 10-month migration from legacy systems to Microsoft Azure, meeting all scope, budget, and schedule targets.</li>
-        <li>Developed Statements of Work (SOW), project charters, and delivery roadmaps in collaboration with architecture and DevOps teams.</li>
-        <li>Oversaw launch of a Power BI analytics platform, automating reporting processes and freeing up 120+ hours of manual work per month.</li>
-        <li>Facilitated stakeholder alignment meetings to expedite decision-making and resolve blockers.</li>
-        <li>Directed backlog prioritization to maximize business value and reduce delivery risk.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Auction Sync | Project Manager <span>(Jun 2022 – Jul 2022)</span></h4>
-      <ul>
-        <li>Established structured delivery approach, aligning requirements, timelines, and resources.</li>
-        <li>Configured Jira workflows to support transparency and efficient tracking of deliverables.</li>
-        <li>Produced automated Power BI operational reports, improving leadership visibility into KPIs.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Credit.com – Financial Services | Project Manager <span>(Oct 2020 – May 2022)</span></h4>
-      <ul>
-        <li>Directed launch of the “ExtraCredit” platform using a microservices architecture, managing schedule, resources, and vendor deliverables.</li>
-        <li>Introduced Agile at the organizational level, training 25+ team members and aligning project execution with business strategy.</li>
-        <li>Established governance frameworks to control scope and maintain delivery commitments.</li>
-        <li>Enhanced stakeholder communication channels, reducing delivery interruptions and change-related risks.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>UST Global | Project Manager <span>(Jan 2018 – Oct 2020)</span></h4>
-      <p><strong>Clients:</strong> Cotiviti, VMware, Anthem</p>
-      <ul>
-        <li>Led multiple software delivery projects in healthcare and technology, ensuring all met contractual SLAs and budget constraints.</li>
-        <li>Managed project schedules, dependencies, and risk mitigation plans to protect delivery timelines.</li>
-        <li>Utilized performance metrics to drive continuous improvement in delivery processes.</li>
-      </ul>
-    </div>
-  </article>
-
-  <article>
-    <h3>Amdocs | Project Manager <span>(Feb 2017 – Dec 2017)</span></h3>
-    <p><strong>Client:</strong> AT&amp;T USA</p>
+    <h4>Primerica – Financial Services | Project Manager <span>(Jul 2023 – Jul 2025)</span></h4>
     <ul>
-      <li>Oversaw creation of MVPs, product roadmaps, and release plans for telecom platforms.</li>
-      <li>Managed cross-functional teams and facilitated alignment between business and technical stakeholders to deliver features on time and within budget.</li>
+      <li>Directed end-to-end delivery of multiple initiatives for Web & Mobile platforms.</li>
+      <li>Led Agile transformation across 4 cross-functional teams, increasing delivery velocity by 25%.</li>
+      <li>Defined project governance and Agile standards across the organization.</li>
     </ul>
-  </article>
 
-  <article>
-    <h3>Softtek | Senior Business Analyst <span>(Sep 2016 – Jan 2017)</span></h3>
-    <p><strong>Client:</strong> Hewlett Packard Enterprise</p>
+    <h4>Ernst & Young – Consulting | Project Manager <span>(Jul 2022 – Jul 2023)</span></h4>
     <ul>
-      <li>Supported large-scale virtualization and migration of IT assets to meet compliance and legal requirements.</li>
-      <li>Conducted in-depth system analysis of databases, servers, and internal platforms to assess readiness and integration feasibility.</li>
-      <li>Collaborated with infrastructure and application teams to ensure data integrity during migration processes.</li>
+      <li>Managed a 10-month migration to Microsoft Azure, meeting all scope, budget, and schedule targets.</li>
+      <li>Developed SOWs, project charters, and delivery roadmaps.</li>
     </ul>
-  </article>
 
-  <article>
-    <h3>Hershey’s Company | Senior Business Analyst <span>(May 2015 – Sep 2016)</span></h3>
+    <h4>Auction Sync | Project Manager <span>(Jun 2022 – Jul 2022)</span></h4>
     <ul>
-      <li>Led multiple Business Intelligence (BI) projects across LATAM, leveraging SAP R/3, SAP HANA (FICO), SQL, and enterprise data lakes.</li>
-      <li>Gathered and documented functional and non-functional requirements; built requirement traceability matrices and visual process flows.</li>
-      <li>Developed and executed functional test scenarios to validate system enhancements and integrations.</li>
-      <li>Ensured compliance with data privacy, governance, and security standards across all project phases.</li>
+      <li>Established structured delivery approach and Jira workflows.</li>
+      <li>Produced automated Power BI operational reports.</li>
     </ul>
-  </article>
 
-  <article>
-    <h3>Panduit | QA Analyst <span>(Sep 2008 – May 2015)</span></h3>
+    <h4>Credit.com – Financial Services | Project Manager <span>(Oct 2020 – May 2022)</span></h4>
     <ul>
-      <li>Delivered IT solutions aligned with Lean Manufacturing and Total Quality Management (TQM) principles to enhance operational efficiency.</li>
-      <li>Certified Lean Green Belt; led process improvement initiatives that increased productivity and reduced waste.</li>
-      <li>Designed and executed quality assurance test plans, ensuring adherence to technical specifications and user requirements.</li>
+      <li>Directed launch of the “ExtraCredit” platform using microservices architecture.</li>
+      <li>Introduced Agile at organizational level, training 25+ team members.</li>
     </ul>
-  </article>
+
+  </div>
+</div>
+
+
+    <!-- UST Global -->
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <h3>UST Global | Project Manager <span>(Jan 2018 – Oct 2020)</span></h3>
+        <ul>
+          <li>Led software delivery projects in healthcare and technology, ensuring SLA compliance.</li>
+          <li>Managed schedules, dependencies, and risk mitigation plans.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Amdocs -->
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <h3>Amdocs | Project Manager <span>(Feb 2017 – Dec 2017)</span></h3>
+        <p><strong>Client:</strong> AT&T USA</p>
+        <ul>
+          <li>Oversaw creation of MVPs, product roadmaps, and release plans for telecom platforms.</li>
+          <li>Managed cross-functional teams to deliver features on time and within budget.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Softtek -->
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <h3>Softtek | Senior Business Analyst <span>(Sep 2016 – Jan 2017)</span></h3>
+        <p><strong>Client:</strong> Hewlett Packard Enterprise</p>
+        <ul>
+          <li>Supported large-scale virtualization and IT asset migrations.</li>
+          <li>Conducted in-depth system analysis of databases, servers, and platforms.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hershey's Company -->
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <h3>Hershey’s Company | Senior Business Analyst <span>(May 2015 – Sep 2016)</span></h3>
+        <ul>
+          <li>Led BI projects across LATAM using SAP R/3, SAP HANA (FICO), SQL, and data lakes.</li>
+          <li>Gathered and documented functional and non-functional requirements.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panduit -->
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <h3>Panduit | QA Analyst <span>(Sep 2008 – May 2015)</span></h3>
+        <ul>
+          <li>Delivered IT solutions aligned with Lean Manufacturing and TQM principles.</li>
+          <li>Certified Lean Green Belt; led process improvement initiatives.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
+
 
 
 
@@ -399,6 +552,7 @@
 </section>
 
 <script>
+<!--Carrusel-->
 let currentSlide = 0;
 const slides = document.querySelector(".carousel .slides");
 const totalSlides = document.querySelectorAll(".carousel img").length;
@@ -411,6 +565,28 @@ document.querySelector(".prev").addEventListener("click", () => {
   currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
   slides.style.transform = `translateX(-${currentSlide * 100}%)`;
 });
+
+
+<!--timeline-->
+
+  const items = document.querySelectorAll('.timeline-item');
+
+  const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 50;
+  }
+
+  const run = () => {
+    items.forEach(item => {
+      if(isInViewport(item)) {
+        item.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', run);
+  window.addEventListener('load', run);
+
 </script>
 
 <section>
@@ -437,3 +613,4 @@ document.querySelector(".prev").addEventListener("click", () => {
 </footer>
 </body>
 </html>
+
